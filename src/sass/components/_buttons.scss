@@ -1,0 +1,11 @@
+.round-corner-button {
+    display: block;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    border: none;
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+    border-radius: 100px;
+}

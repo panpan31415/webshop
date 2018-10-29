@@ -1,0 +1,56 @@
+.topbar {
+    font-family: Poppins-Regular;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #b2b2b2;
+    width: 100%;
+    height: 4rem;
+    background-color: $dark-gray;
+    &>section {
+        display: flex;
+        margin: 0 auto;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.top-banner {
+    width: 100vw;
+    height: calc(100vh - 40px);
+    position: relative;
+    &>section {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: flex-start;
+    }
+}
+
+.sec-banner {
+    width: 100%;
+    margin-top: 8rem;
+    &>section {
+        display: grid;
+        grid-gap: 3rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.products {
+    width: 100%;
+    margin-top: 8rem;
+}
+
+.footer {
+    background-color: #222;
+    width: 100%;
+    padding-bottom: 4rem;
+    padding-top: 6rem;
+    section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 6rem;
+    }
+}

@@ -1,0 +1,115 @@
+.products {
+    &__section-title {
+        font-family: Poppins-Bold;
+        font-size: 36px;
+        line-height: 1.1;
+        text-transform: uppercase;
+    }
+}
+
+.GridControls {
+    margin: 4rem 0;
+    color: $light-gray;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &__types {
+        display: flex;
+        list-style: none;
+        font-family: Poppins-Regular;
+        font-size: 15px;
+        line-height: 1.2;
+    }
+    &__type-item {
+        margin-right: 2rem;
+        button {
+            display: block;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0;
+            transition: all 0.5s;
+            cursor: pointer;
+            &:hover,
+            &:focus {
+                color: $dark-gray;
+                outline: none;
+                border-bottom: 1px solid currentColor;
+            }
+        }
+    }
+    &__function-group {
+        display: flex;
+    }
+}
+
+.GridControls-button {
+    &:hover {
+        background-color: $purple;
+        color: #fff;
+        .GridControls-button__ico {
+            fill: #fff;
+        }
+    }
+    &:focus {
+        outline: none;
+        color: #fff;
+        .GridControls-button__ico {
+            fill: #fff;
+        }
+        background-color: $purple;
+        &:before {
+            opacity: 1;
+        }
+    }
+    display: flex;
+    align-items: flex-start;
+    height: 4rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    transition: all 0.5s;
+    position: relative;
+    &--filter {
+        margin-right: 1rem;
+    }
+    &__ico {
+        display: block;
+        height: 1.6rem;
+        width: 1.6rem;
+        margin-right: 0.5rem;
+        fill: $dark-gray;
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        height: 2rem;
+        width: 2rem;
+        top: 100%;
+        left: calc(50% - 10px);
+        border: 1rem solid transparent;
+        border-top-color: $purple;
+        opacity: 0;
+    }
+}
+
+.loadmore-button {
+    margin-top: 8rem;
+    margin-bottom: 16rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    line-height: 1.466667;
+    text-transform: uppercase;
+    color: #222;
+    transition: background-color .5s;
+    &:hover {
+        color: #fff;
+        background-color: #222;
+    }
+}
