@@ -1,17 +1,19 @@
 .nav-bar {
-    width: 100%;
+    width: 100vw;
     background-color: transparent;
-    position: absolute;
-    height: 8rem;
     z-index: 100;
+    transition: all 0.5s;
+    height: 8rem;
+    position: absolute;
     top: 4rem;
     left: 0;
-    transition: all 0.2s;
-    section {
+    &__section {
         background-color: transparent;
         height: inherit;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 15rem 1fr 17rem;
+        justify-content: start;
+        align-items: center;
     }
     &__list {
         display: flex;
@@ -19,10 +21,10 @@
         list-style: none;
     }
     &__item {
-        padding: 0 1.5rem;
         a:link {
             font-family: Poppins-Medium;
             font-size: 14px;
+            padding: 0 1.5rem;
             color: $dark-gray;
             text-transform: capitalize;
             text-decoration: none;
@@ -35,6 +37,7 @@
         height: 100%;
         display: flex;
         align-items: center;
+        justify-items: start;
         margin-right: 5rem;
     }
     &__icon-group {
@@ -42,6 +45,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        justify-self: end;
     }
     &__icon {
         display: block;
@@ -60,12 +64,80 @@
             width: 100%;
         }
     }
+    &__hambrug_icon {
+        display: none;
+    }
 }
 
 .nav-bar--fixed {
     position: fixed;
     top: 0;
-    left: 0;
+    width: 100vw;
     background: #fff;
     box-shadow: 0 0.1rem 0.1rem #eee;
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-bar {
+        position: static;
+        background-color: #fff;
+        grid-column: 1 / -1;
+        grid-row: 2 / span 1;
+        height: auto;
+        section {
+            padding: 0;
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        &__logo {
+            margin: 0;
+            padding-left: 1.5rem;
+            grid-row: 1 / span 1;
+            grid-column: 1 / span 1;
+            height: 6rem;
+        }
+        &__list {
+            display: block;
+            height: 0;
+            grid-row: 2 / 3;
+            grid-column: 1 / -1;
+            width: 100vw;
+            overflow: hidden;
+            transition: height 0.5s;
+        }
+        &__list--active {
+            display: block;
+            height: 16rem;
+        }
+        &__item {
+            display: flex;
+            height: 4rem;
+            justify-content: flex-start;
+            align-items: center;
+            color: #eee;
+            a:link,
+            a:visited {
+                display: block;
+                background-color: $purple;
+                width: 100%;
+                height: 100%;
+                line-height: 4rem;
+                transition: background-color 0.5s;
+            }
+            a:hover {
+                background-color: #eee;
+                color: $purple;
+            }
+        }
+        &__icon-group {
+            padding-right: 1.5rem;
+            grid-row: 1 / span 1;
+            grid-column: 2 / span 1;
+        }
+        &__hambrug_icon {
+            display: block;
+        }
+    }
 }

@@ -42,8 +42,8 @@
     font-family: Poppins-Regular;
     font-size: 28px;
     line-height: 1.2857;
-    text-transform: capitalize;
     margin-bottom: 2rem;
+    text-transform: capitalize;
     display: block;
     position: relative;
     span {
@@ -55,8 +55,8 @@
     font-family: PlayfairDisplay-Bold;
     font-size: 60px;
     line-height: 1.1;
-    text-transform: uppercase;
     margin-bottom: 4rem;
+    text-transform: uppercase;
     span {
       display: block;
       animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 1s rotate90;
@@ -71,5 +71,33 @@
     text-transform: uppercase;
     width: 16rem;
     animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 2s rotate_minus90;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .top-banner {
+    &__arrow-btn {
+      &--left {
+        left: 1rem;
+      }
+      &--right {
+        right: 1rem;
+      }
+    }
+    &__title {
+      font-size: 20px;
+      line-height: 1.2857;
+      margin-bottom: 1rem;
+    }
+    &__banner-text {
+      font-size: 40px;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+    &__button {
+      font-size: 10px;
+      line-height: 1.466667;
+      width: 12rem;
+    }
   }
 }

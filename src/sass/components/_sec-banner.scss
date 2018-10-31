@@ -4,7 +4,7 @@
   position: relative;
   overflow: hidden;
   color: $dark-gray;
-  z-index: auto;
+  transform: all 0.5s;
   cursor: pointer;
   img {
     width: inherit;
@@ -78,6 +78,32 @@
     line-height: 1.466667;
     text-transform: uppercase;
     transform: translateY(25px);
+    transition: transform 0.5s 0.5s;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .sec-banner__item-title {
+    top: 3rem;
+    left: 3rem;
+    font-size: 20px;
+    line-height: 1.1;
+  }
+  .sec-banner__button {
+    bottom: 3rem;
+    left: 3rem;
+  }
+  .sec-banner__item-season {
+    top: 6rem;
+    left: 3rem;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .sec-banner__button-text {
+    font-size: 10px;
+    line-height: 1.466667;
+    text-transform: uppercase;
+    transform: translateY(20px);
     transition: transform 0.5s 0.5s;
   }
 }

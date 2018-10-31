@@ -13,12 +13,16 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-content: center;
     &__types {
         display: flex;
         list-style: none;
+        flex-wrap: wrap;
         font-family: Poppins-Regular;
         font-size: 15px;
         line-height: 1.2;
+        align-content: center;
+        align-items: center;
     }
     &__type-item {
         margin-right: 2rem;
@@ -107,9 +111,30 @@
     line-height: 1.466667;
     text-transform: uppercase;
     color: #222;
-    transition: background-color .5s;
+    transition: background-color 0.5s;
     &:hover {
         color: #fff;
         background-color: #222;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .products {
+        &__section-title {
+            font-size: 30px;
+        }
+    }
+    .GridControls {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 3rem;
+        &__types {
+            grid-column: 1 /-1;
+            grid-row: 1 / 2;
+        }
+        &__type-item {
+            grid-column: 1 /-1;
+            grid-row: 2 / 3;
+        }
     }
 }

@@ -108,7 +108,7 @@ const Footer: React.SFC = () => {
           >
             Colorlib
           </a>
-          . this template is reedited by{" "}
+          . this template is re-edited by{" "}
           <a href="http://panpan.dk/" className="footer__copyright--link">
             Panpan Zhang
           </a>{" "}

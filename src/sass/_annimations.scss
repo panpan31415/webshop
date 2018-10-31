@@ -1,25 +1,25 @@
 @keyframes rotate90 {
-  from {
-    opacity: 0%;
-    transform: rotate(270deg);
-    transform-origin: 0 0;
-  }
-  to {
-    opacity: 100%;
-    transform: rotate(360deg);
-    transform-origin: 0 0;
-  }
+    from {
+        opacity: 0%;
+        transform: rotate(270deg);
+        transform-origin: 0 0;
+    }
+    to {
+        opacity: 100%;
+        transform: rotate(360deg);
+        transform-origin: 0 0;
+    }
 }
 
 @keyframes rotate_minus90 {
-  from {
-    opacity: 0%;
-    transform: rotate(270deg);
-    transform-origin: 100% 0;
-  }
-  to {
-    opacity: 100%;
-    transform: rotate(360deg);
-    transform-origin: 100% 0;
-  }
+    from {
+        opacity: 0%;
+        transform: rotate(270deg);
+        transform-origin: 100% 0;
+    }
+    to {
+        opacity: 100%;
+        transform: rotate(360deg);
+        transform-origin: 100% 0;
+    }
 }

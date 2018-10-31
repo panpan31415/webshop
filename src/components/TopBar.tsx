@@ -3,7 +3,7 @@ import * as React from "react";
 const TopBar: React.SFC = () => {
   return (
     <div className="topbar">
-      <section>
+      <section className="topbar__section">
         <div className="topbar__promotion-text">
           Free shipping for standard order over 2000 kr.
         </div>
