@@ -215,7 +215,9 @@ body {
 .top-banner {
   background-position: center;
   background-size: cover;
-  color: #222; }
+  color: #222;
+  background-image: none;
+  transition: background-image 2s 0.2s; }
   .top-banner__arrow-btn {
     display: block;
     position: absolute;
@@ -782,7 +784,6 @@ body {
   display: flex;
   align-content: center;
   justify-items: flex-start;
-  transform: translateX(-5px);
   margin-top: 4rem; }
   .footer__social-medias__icon {
     width: 1.6rem;
@@ -888,4 +889,6 @@ body {
     align-items: center;
     text-align: center; }
   .footer__subscribe-btn {
-    margin: 0 auto; } }
+    margin: 0 auto; }
+  .footer__social-medias__icon {
+    margin: 0 .8rem; } }

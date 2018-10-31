@@ -2,6 +2,8 @@
   background-position: center;
   background-size: cover;
   color: $dark-gray;
+  background-image: none;
+  transition: background-image 2s 0.2s;
   &__arrow-btn {
     display: block;
     position: absolute;

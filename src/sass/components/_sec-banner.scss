@@ -1,109 +1,109 @@
 .sec-banner__item {
-  width: 100%;
-  border: 1px solid #ccc;
-  position: relative;
-  overflow: hidden;
-  color: $dark-gray;
-  transform: all 0.5s;
-  cursor: pointer;
-  img {
-    width: inherit;
-    z-index: -1;
-    transform: translateY(5px);
-  }
-  &:hover {
-    color: #fff;
-    &::before {
-      background-color: rgba($purple, 0.8);
+    width: 100%;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: hidden;
+    color: $dark-gray;
+    transform: all 0.5s;
+    cursor: pointer;
+    img {
+        width: inherit;
+        z-index: -1;
+        transform: translateY(5px);
     }
-    .sec-banner__button {
-      opacity: 1;
-      transform: scaleX(1);
+    &:hover {
+        color: #fff;
+        &::before {
+            background-color: rgba($purple, 0.8);
+        }
+        .sec-banner__button {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+        .sec-banner__button-text {
+            transform: translateY(0);
+        }
     }
-    .sec-banner__button-text {
-      transform: translateY(0);
-    }
-  }
 }
 
 .sec-banner__item::before {
-  transition: all 0.5s;
-  z-index: 10;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
+    transition: all 0.5s;
+    z-index: 10;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
 }
 
 .sec-banner__item-title {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-  font-family: Poppins-Bold;
-  font-size: 28px;
-  line-height: 1.1;
-  z-index: 10;
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    font-family: Poppins-Bold;
+    font-size: 28px;
+    line-height: 1.1;
+    z-index: 10;
 }
 
 .sec-banner__item-season {
-  position: absolute;
-  top: 8rem;
-  left: 4rem;
-  z-index: 10;
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  line-height: 1.7;
+    position: absolute;
+    top: 8rem;
+    left: 4rem;
+    z-index: 10;
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
 }
 
 .sec-banner__button {
-  position: absolute;
-  display: block;
-  bottom: 4rem;
-  left: 4rem;
-  z-index: 10;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid currentColor;
-  padding: 0.5rem 0;
-  outline: none;
-  overflow: hidden;
-  opacity: 0;
-  transform: scaleX(0);
-  transition: all 0.5s;
-  .sec-banner__button-text {
+    position: absolute;
     display: block;
-    font-family: Poppins-Medium;
-    font-size: 15px;
-    line-height: 1.466667;
-    text-transform: uppercase;
-    transform: translateY(25px);
-    transition: transform 0.5s 0.5s;
-  }
+    bottom: 4rem;
+    left: 4rem;
+    z-index: 10;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid currentColor;
+    padding: 0.5rem 0;
+    outline: none;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: all 0.5s;
+    .sec-banner__button-text {
+        display: block;
+        font-family: Poppins-Medium;
+        font-size: 15px;
+        line-height: 1.466667;
+        text-transform: uppercase;
+        transform: translateY(25px);
+        transition: transform 0.5s 0.5s;
+    }
 }
 
 @media only screen and (max-width: 767px) {
-  .sec-banner__item-title {
-    top: 3rem;
-    left: 3rem;
-    font-size: 20px;
-    line-height: 1.1;
-  }
-  .sec-banner__button {
-    bottom: 3rem;
-    left: 3rem;
-  }
-  .sec-banner__item-season {
-    top: 6rem;
-    left: 3rem;
-    font-size: 15px;
-    line-height: 1.7;
-  }
-  .sec-banner__button-text {
-    font-size: 10px;
-    line-height: 1.466667;
-    text-transform: uppercase;
-    transform: translateY(20px);
-    transition: transform 0.5s 0.5s;
-  }
+    .sec-banner__item-title {
+        top: 3rem;
+        left: 3rem;
+        font-size: 20px;
+        line-height: 1.1;
+    }
+    .sec-banner__button {
+        bottom: 3rem;
+        left: 3rem;
+    }
+    .sec-banner__item-season {
+        top: 6rem;
+        left: 3rem;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    .sec-banner__button-text {
+        font-size: 10px;
+        line-height: 1.466667;
+        text-transform: uppercase;
+        transform: translateY(20px);
+        transition: transform 0.5s 0.5s;
+    }
 }
