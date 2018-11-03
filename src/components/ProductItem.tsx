@@ -1,10 +1,22 @@
 import * as React from "react";
 
-const ProductItem: React.SFC = () => {
+export interface IProduct {
+  productId: string;
+  name: string;
+  price: string;
+  type: string;
+  img_url: string;
+}
+
+export const ProductItem: React.SFC<{
+  key: string;
+  Product: IProduct | any;
+}> = ({ Product }) => {
+  const { name, price, img_url } = Product;
   return (
     <div className="productGrid__item">
       <div className="productGrid__item__img-container">
-        <img src="images/product-05.jpg" alt="IMG-PRODUCT" />
+        <img src={img_url} alt="IMG-PRODUCT" />
         <div className="productGrid__item__button-container">
           <button className="round-corner-button productGrid__item__button">
             Quick View
@@ -12,16 +24,14 @@ const ProductItem: React.SFC = () => {
         </div>
       </div>
       <div className="productGrid__item__name">
-        <p>Esprit Ruffle Shirt</p>
+        <p>{name}</p>
         <div className="productGrid__item__fav">
           <svg>
             <use xlinkHref="images/icons/symbol-defs.svg#icon-heart-o" />
           </svg>
         </div>
       </div>
-      <p className="productGrid__item__price">450.00 DKK</p>
+      <p className="productGrid__item__price">{price}</p>
     </div>
   );
 };
-
-export default ProductItem;

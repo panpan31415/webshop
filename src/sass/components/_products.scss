@@ -46,6 +46,89 @@
     }
 }
 
+.GridControls__panel {
+    width: 100%;
+    margin-top: -20px;
+    margin-bottom: 4rem;
+    &--filter {
+        background-color: #f2f2f2;
+        padding: 3rem;
+        width: inherit;
+        border: 1px solid red;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        h3 {
+            display: block;
+            grid-row: 1 / span 1;
+            width: 100%;
+            font-family: Poppins-SemiBold;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        ul {
+            display: block;
+            grid-row: 2 / span 1;
+            list-style: none;
+            font-family: Poppins-Regular;
+            font-size: 15px;
+            line-height: 1.2;
+            color: #aaa;
+            li {
+                margin: 0.5rem 0;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                span {
+                    display: block;
+                    width: 1rem;
+                    height: 1rem;
+                    border: 1px solid currentcolor;
+                    background-color: currentColor;
+                    margin: 0.5rem;
+                    border-radius: 50%;
+                }
+                &:hover {
+                    font-weight: 600;
+                    color: $purple;
+                    text-decoration: underline $purple;
+                }
+            }
+        }
+    }
+    &--search {
+        display: flex;
+        border: 1px solid #aaa;
+        padding: 2rem;
+        border-radius: 3px;
+        justify-items: flex-start;
+        align-items: center;
+        input {
+            width: 1px;
+            width: 100%;
+            height: 4rem;
+            border: none;
+            background-color: transparent;
+            font-family: Poppins-Regular;
+            font-size: 16px;
+            line-height: 1.625;
+            &,
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    &--search-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 1rem;
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
 .GridControls-button {
     &:hover {
         background-color: $purple;

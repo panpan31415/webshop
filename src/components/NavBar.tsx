@@ -20,8 +20,6 @@ class Header extends React.Component<any, IState> {
    */
   public scrollToFixed() {
     const navbar: HTMLElement | null = document.getElementById("nav-bar");
-    // tslint:disable-next-line:no-console
-    console.log(window.innerWidth);
     const Y = window.scrollY;
     if (window.innerWidth >= 768) {
       if (navbar !== null && Y !== 0) {
