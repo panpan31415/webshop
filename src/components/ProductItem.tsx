@@ -1,16 +1,10 @@
 import * as React from "react";
 
-export interface IProduct {
-  productId: string;
-  name: string;
-  price: string;
-  type: string;
-  img_url: string;
-}
+import { IProduct } from "../reducers/stateTypes";
 
 export const ProductItem: React.SFC<{
   key: string;
-  Product: IProduct | any;
+  Product: IProduct;
 }> = ({ Product }) => {
   const { name, price, img_url } = Product;
   return (

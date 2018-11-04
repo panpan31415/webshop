@@ -1,38 +1,80 @@
-import { FILTER_PRODUCTS_BY_CATEGORY } from "../actions/type";
+import {
+  TOGGLE_FILTER_BUTTON,
+  TOGGLE_SEARCH_BUTTON,
+  FILTER_PRODUCTS_BY_CATEGORY,
+  FILTER_PRODUCTS_BY_PRICE_INTERVAL,
+  FILTER_PRODUCTS_BY_SORTING,
+  FILTER_PRODUCTS_BY_USER_INPUT
+} from "../actions/type";
 import * as Redux from "redux";
 
-interface IFilter {
-  category: {
-    type: "all" | "men" | "women" | "bags" | "shoes" | "watch";
-    active: boolean;
-  };
-  sortBy: {
-    type: "default" | "price_low_to_high" | "price_high_to_low";
-    active: boolean;
-  };
-  search: { searchText: string; active: boolean };
-}
+import { IFilter } from "./stateTypes";
+
 const initialFilter: IFilter = {
   category: {
-    type: "all",
-    active: true
+    type: "all"
   },
   sortBy: {
-    type: "default",
-    active: false
+    type: "default"
   },
-  search: { searchText: "", active: false }
+  price: {
+    interval: "all"
+  },
+  search: { searchText: "" }
 };
-const filter: Redux.Reducer<IFilter | any, Redux.AnyAction> = (
+const filter: Redux.Reducer<IFilter, Redux.AnyAction> = (
   filter = initialFilter,
-  action = { type: "" }
+  action = { type: "", payload: "" }
 ) => {
   switch (action.type) {
+    case TOGGLE_FILTER_BUTTON: {
+      return {
+        ...filter,
+        sortBy: {
+          type: "default"
+        },
+        price: {
+          interval: "all"
+        }
+      };
+    }
+    case TOGGLE_SEARCH_BUTTON: {
+      return {
+        ...filter,
+        sortBy: {
+          type: "default"
+        },
+        price: {
+          interval: "all"
+        }
+      };
+    }
     case FILTER_PRODUCTS_BY_CATEGORY: {
       return {
-        category: { type: action.payload, active: true },
-        sortBy: { type: "default", active: false },
-        search: { searchText: "", active: false }
+        ...initialFilter,
+        category: { type: action.payload, active: true }
+      };
+    }
+    case FILTER_PRODUCTS_BY_SORTING: {
+      return {
+        ...filter,
+        sortBy: {
+          type: action.payload
+        }
+      };
+    }
+    case FILTER_PRODUCTS_BY_PRICE_INTERVAL: {
+      return {
+        ...filter,
+        price: {
+          interval: action.payload
+        }
+      };
+    }
+    case FILTER_PRODUCTS_BY_USER_INPUT: {
+      return {
+        ...filter,
+        search: { searchText: action.payload }
       };
     }
     default: {

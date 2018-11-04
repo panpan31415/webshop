@@ -36,8 +36,8 @@ section {
   src: url("./fonts/Poppins/Poppins-SemiBold.ttf"); }
 
 @font-face {
-  font-family: Poppins-Bold;
-  src: url("./fonts/Poppins/Poppins-Bold.ttf"); }
+  font-family: Poppins-Medium;
+  src: url("./fonts/Poppins/Poppins-Medium.ttf"); }
 
 @font-face {
   font-family: Poppins-Bold;
@@ -606,22 +606,27 @@ body {
       cursor: pointer; }
       .GridControls__type-item button:hover, .GridControls__type-item button:focus {
         color: #222;
-        outline: none;
-        border-bottom: 1px solid currentColor; }
+        outline: none; }
   .GridControls__function-group {
     display: flex; }
+
+.GridControls__type-item--active {
+  color: #222 !important;
+  border-bottom: 1px solid #222 !important; }
 
 .GridControls__panel {
   width: 100%;
   margin-top: -20px;
   margin-bottom: 4rem; }
   .GridControls__panel--filter {
+    display: none;
+    overflow: hidden;
     background-color: #f2f2f2;
     padding: 3rem;
     width: inherit;
-    border: 1px solid red;
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .GridControls__panel--filter--active {
+      display: grid; }
     .GridControls__panel--filter h3 {
       display: block;
       grid-row: 1 / span 1;
@@ -654,14 +659,20 @@ body {
         .GridControls__panel--filter ul li:hover {
           font-weight: 600;
           color: #6c7ae0;
-          text-decoration: underline #6c7ae0; }
+          text-decoration: underline transparent; }
+  .GridControls__panel .fillter__link--active {
+    font-weight: 600;
+    color: #6c7ae0;
+    text-decoration: underline #6c7ae0; }
   .GridControls__panel--search {
-    display: flex;
     border: 1px solid #aaa;
     padding: 2rem;
     border-radius: 3px;
     justify-items: flex-start;
-    align-items: center; }
+    align-items: center;
+    display: none; }
+    .GridControls__panel--search--active {
+      display: flex !important; }
     .GridControls__panel--search input {
       width: 1px;
       width: 100%;
@@ -682,6 +693,7 @@ body {
       width: 100%; }
 
 .GridControls-button {
+  cursor: pointer;
   display: flex;
   align-items: flex-start;
   height: 4rem;
@@ -702,8 +714,6 @@ body {
     background-color: #6c7ae0; }
     .GridControls-button:focus .GridControls-button__ico {
       fill: #fff; }
-    .GridControls-button:focus:before {
-      opacity: 1; }
   .GridControls-button--filter {
     margin-right: 1rem; }
   .GridControls-button__ico {
@@ -725,6 +735,14 @@ body {
     border: 1rem solid transparent;
     border-top-color: #6c7ae0;
     opacity: 0; }
+
+.GridControls-button--active {
+  color: #fff;
+  background-color: #6c7ae0; }
+  .GridControls-button--active svg {
+    fill: #222; }
+  .GridControls-button--active:before {
+    opacity: 1; }
 
 .loadmore-button {
   margin-top: 8rem;

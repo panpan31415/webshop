@@ -7,7 +7,15 @@ import Header from "./components/NavBar";
 import Products from "./components/Products";
 import SecondaryBanner from "./components/SecondaryBanner";
 import TopBaner from "./components/TopBanner";
-import { loadProduct, setfilter } from "./actions";
+import {
+  loadProduct,
+  setfilterByCategory,
+  toggleFilterButton,
+  toggleSearchButton,
+  setfilterBySorting,
+  setFilterByPriceInterval,
+  setFilterByUserInput
+} from "./actions";
 
 interface IProps {
   loadProduct: Redux.Action;
@@ -21,9 +29,15 @@ class App extends React.Component<any, IProps> {
         <TopBaner />
         <SecondaryBanner />
         <Products
-          category={this.props.category}
+          filter={this.props.filter}
           products={this.props.products}
-          setfilter={this.props.setfilter}
+          setfilterByCategory={this.props.setfilterByCategory}
+          toggleFilterButton={this.props.toggleFilterButton}
+          toggleSearchButton={this.props.toggleSearchButton}
+          setfilterBySorting={this.props.setfilterBySorting}
+          setFilterByPriceInterval={this.props.setFilterByPriceInterval}
+          setFilterByUserInput={this.props.setFilterByUserInput}
+          UIElements={this.props.UIElements}
         />
         <Footer />
       </div>
@@ -44,8 +58,23 @@ function mapDispatchToProps(dispatch: Redux.Dispatch) {
     loadProduct: () => {
       loadProduct()(dispatch);
     },
-    changeCategory: (event: React.MouseEvent) => {
-      dispatch(setfilter(event));
+    setfilterByCategory: (event: React.MouseEvent) => {
+      dispatch(setfilterByCategory(event));
+    },
+    setfilterBySorting: (event: React.MouseEvent) => {
+      dispatch(setfilterBySorting(event));
+    },
+    setFilterByPriceInterval: (event: React.MouseEvent) => {
+      dispatch(setFilterByPriceInterval(event));
+    },
+    setFilterByUserInput: (event: React.FormEvent<HTMLInputElement>) => {
+      dispatch(setFilterByUserInput(event));
+    },
+    toggleFilterButton: (event: React.MouseEvent) => {
+      dispatch(toggleFilterButton(event));
+    },
+    toggleSearchButton: (event: React.MouseEvent) => {
+      dispatch(toggleSearchButton(event));
     }
   };
 }
