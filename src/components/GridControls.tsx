@@ -22,21 +22,24 @@ const GridControls: React.SFC<{
 }) => {
   const filer_icon = UIElements.filter.active ? (
     <svg>
-      <use xlinkHref="images/icons/symbol-defs.svg#icon-close" />
+      <use xlinkHref="images/icons/symbol-defs.svg#icon-close" key="close" />
     </svg>
   ) : (
     <svg>
-      <use xlinkHref="images/icons/symbol-defs.svg#icon-filter_list" />
+      <use
+        xlinkHref="images/icons/symbol-defs.svg#icon-filter_list"
+        key="filter"
+      />
     </svg>
   );
 
   const search_icon = UIElements.search.active ? (
     <svg>
-      <use xlinkHref="images/icons/symbol-defs.svg#icon-close" />
+      <use xlinkHref="images/icons/symbol-defs.svg#icon-close" key="close" />
     </svg>
   ) : (
     <svg>
-      <use xlinkHref="images/icons/symbol-defs.svg#icon-search" />
+      <use xlinkHref="images/icons/symbol-defs.svg#icon-search" key="search" />
     </svg>
   );
 

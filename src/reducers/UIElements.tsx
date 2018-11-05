@@ -61,6 +61,7 @@ const UIElements: Redux.Reducer<lUIElementsState, Redux.AnyAction> = (
       return UpdateSortingFilter(UIElementsState, action.payload);
     }
     case FILTER_PRODUCTS_BY_PRICE_INTERVAL: {
+      console.log("UI reducer:64 ", action.payload);
       return UpdatePriceIntervalFilter(UIElementsState, action.payload);
     }
 

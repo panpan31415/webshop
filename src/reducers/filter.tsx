@@ -64,6 +64,7 @@ const filter: Redux.Reducer<IFilter, Redux.AnyAction> = (
       };
     }
     case FILTER_PRODUCTS_BY_PRICE_INTERVAL: {
+      console.log("filter reducer:67 ", action.payload);
       return {
         ...filter,
         price: {
