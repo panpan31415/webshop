@@ -156,133 +156,151 @@ const GridControls: React.SFC<{
               : ""
           }`}
         >
-          <h3>Sort By</h3>
-          <ul>
-            <li
-              data-sort="default"
-              className={
-                UIElements.filter.sortBy.default ? "fillter__link--active" : ""
-              }
-              onClick={setfilterBySorting}
-            >
-              Default
-            </li>
-            <li
-              data-sort="price_low_to_high"
-              className={
-                UIElements.filter.sortBy.price_low_to_high
-                  ? "fillter__link--active"
-                  : ""
-              }
-              onClick={setfilterBySorting}
-            >
-              Price: Low to High
-            </li>
-            <li
-              data-sort="price_high_to_low"
-              className={
-                UIElements.filter.sortBy.price_high_to_low
-                  ? "fillter__link--active"
-                  : ""
-              }
-              onClick={setfilterBySorting}
-            >
-              Price: High to Low
-            </li>
-          </ul>
-          <h3>Price</h3>
-          <ul>
-            <li
-              data-price-interval="all"
-              className={
-                UIElements.filter.price.all ? "fillter__link--active" : ""
-              }
-              onClick={setFilterByPriceInterval}
-            >
-              All Prices
-            </li>
-            <li
-              data-price-interval="0 - 199"
-              className={
-                UIElements.filter.price._0_199 ? "fillter__link--active" : ""
-              }
-              onClick={setFilterByPriceInterval}
-            >
-              0 - 199 kr.
-            </li>
-            <li
-              data-price-interval="200 - 399"
-              className={
-                UIElements.filter.price._200_399 ? "fillter__link--active" : ""
-              }
-              onClick={setFilterByPriceInterval}
-            >
-              200 - 399 kr.
-            </li>
-            <li
-              data-price-interval="400 - 599"
-              className={
-                UIElements.filter.price._400_599 ? "fillter__link--active" : ""
-              }
-              onClick={setFilterByPriceInterval}
-            >
-              400 - 599 kr.
-            </li>
-            <li
-              data-price-interval="600 - 799"
-              className={
-                UIElements.filter.price._600_799 ? "fillter__link--active" : ""
-              }
-              onClick={setFilterByPriceInterval}
-            >
-              600 - 799 kr.
-            </li>
+          <div className="filterContainer">
+            <h3>Sort By</h3>
+            <ul>
+              <li
+                data-sort="default"
+                className={
+                  UIElements.filter.sortBy.default
+                    ? "fillter__link--active"
+                    : ""
+                }
+                onClick={setfilterBySorting}
+              >
+                Default
+              </li>
+              <li
+                data-sort="price_low_to_high"
+                className={
+                  UIElements.filter.sortBy.price_low_to_high
+                    ? "fillter__link--active"
+                    : ""
+                }
+                onClick={setfilterBySorting}
+              >
+                Price: Low to High
+              </li>
+              <li
+                data-sort="price_high_to_low"
+                className={
+                  UIElements.filter.sortBy.price_high_to_low
+                    ? "fillter__link--active"
+                    : ""
+                }
+                onClick={setfilterBySorting}
+              >
+                Price: High to Low
+              </li>
+            </ul>
+          </div>
+          <div className="filterContainer">
+            <h3>Price</h3>
+            <ul>
+              <li
+                data-price-interval="all"
+                className={
+                  UIElements.filter.price.all ? "fillter__link--active" : ""
+                }
+                onClick={setFilterByPriceInterval}
+              >
+                All Prices
+              </li>
+              <li
+                data-price-interval="0 - 199"
+                className={
+                  UIElements.filter.price._0_199 ? "fillter__link--active" : ""
+                }
+                onClick={setFilterByPriceInterval}
+              >
+                0 - 199 kr.
+              </li>
+              <li
+                data-price-interval="200 - 399"
+                className={
+                  UIElements.filter.price._200_399
+                    ? "fillter__link--active"
+                    : ""
+                }
+                onClick={setFilterByPriceInterval}
+              >
+                200 - 399 kr.
+              </li>
+              <li
+                data-price-interval="400 - 599"
+                className={
+                  UIElements.filter.price._400_599
+                    ? "fillter__link--active"
+                    : ""
+                }
+                onClick={setFilterByPriceInterval}
+              >
+                400 - 599 kr.
+              </li>
+              <li
+                data-price-interval="600 - 799"
+                className={
+                  UIElements.filter.price._600_799
+                    ? "fillter__link--active"
+                    : ""
+                }
+                onClick={setFilterByPriceInterval}
+              >
+                600 - 799 kr.
+              </li>
 
-            <li
-              data-price-interval="800 - 999"
-              className={
-                UIElements.filter.price._800_999 ? "fillter__link--active" : ""
-              }
-              onClick={setFilterByPriceInterval}
-            >
-              800 - 999 kr.
-            </li>
-            <li
-              data-price-interval="1000 - Infinity"
-              className={
-                UIElements.filter.price._1000_Infinity
-                  ? "fillter__link--active"
-                  : ""
-              }
-              onClick={setFilterByPriceInterval}
-            >
-              More than 1000 kr.
-            </li>
-          </ul>
-          <h3 title="function doesn't work">Color</h3>
-          <ul>
-            <li>
-              <span style={{ color: "black" }}>{""}</span>
-              Black
-            </li>
-            <li>
-              <span style={{ color: "Gray" }}>{""}</span>
-              Gray
-            </li>
-            <li>
-              <span style={{ color: "Red" }}>{""}</span>
-              Red
-            </li>
-            <li>
-              <span style={{ color: "Green" }}>{""}</span>
-              Green
-            </li>
-            <li>
-              <span style={{ color: "orangered" }}>{""}</span>
-              orangered
-            </li>
-          </ul>
-          <h3>More Options</h3>
+              <li
+                data-price-interval="800 - 999"
+                className={
+                  UIElements.filter.price._800_999
+                    ? "fillter__link--active"
+                    : ""
+                }
+                onClick={setFilterByPriceInterval}
+              >
+                800 - 999 kr.
+              </li>
+              <li
+                data-price-interval="1000 - Infinity"
+                className={
+                  UIElements.filter.price._1000_Infinity
+                    ? "fillter__link--active"
+                    : ""
+                }
+                onClick={setFilterByPriceInterval}
+              >
+                More than 1000 kr.
+              </li>
+            </ul>{" "}
+          </div>
+          <div className="filterContainer">
+            <h3 title="function doesn't work">Color</h3>
+            <ul>
+              <li>
+                <span style={{ color: "black" }}>{""}</span>
+                Black
+              </li>
+              <li>
+                <span style={{ color: "Gray" }}>{""}</span>
+                Gray
+              </li>
+              <li>
+                <span style={{ color: "Red" }}>{""}</span>
+                Red
+              </li>
+              <li>
+                <span style={{ color: "Green" }}>{""}</span>
+                Green
+              </li>
+              <li>
+                <span style={{ color: "orangered" }}>{""}</span>
+                orangered
+              </li>
+            </ul>
+          </div>
+          <div className="filterContainer">
+            <h3>More Options</h3>{" "}
+          </div>
         </div>
         <div
           className={`GridControls__panel--search ${

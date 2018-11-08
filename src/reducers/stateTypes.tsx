@@ -55,4 +55,26 @@ export interface lUIElementsState {
   search: {
     active: boolean;
   };
+  shoppingcart: {
+    button: boolean;
+    sidePanel: boolean;
+  };
+}
+export interface IAuthentication {
+  loginStatus: boolean;
+  user: {
+    password: string;
+    userName: string;
+    loginTime: string;
+    logoutTime: string;
+    IP: string;
+  };
+}
+
+export interface IUser {
+  userName: string;
+  password: string;
+  favorite: Array<string>;
+  shopingCart: Array<{ productId: string; quantity: number }>;
+  transactions: Array<{ id: string; date: string }>;
 }

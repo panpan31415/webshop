@@ -55,6 +55,7 @@
         fill: $dark-gray;
         cursor: pointer;
         transition: all 0.5s;
+        position: relative;
         &:hover {
             fill: $purple;
         }
@@ -67,6 +68,10 @@
     &__hambrug_icon {
         display: none;
     }
+}
+
+.shoppingcart--active {
+    fill: $purple;
 }
 
 .nav-bar--fixed {

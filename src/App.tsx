@@ -3,10 +3,11 @@ import * as React from "react";
 import * as Redux from "redux";
 
 import Footer from "./components/Footer";
-import Header from "./components/NavBar";
+import Header from "./components/Header";
 import Products from "./components/Products";
 import SecondaryBanner from "./components/SecondaryBanner";
 import TopBaner from "./components/TopBanner";
+import * as _ from "lodash";
 import {
   loadProduct,
   setfilterByCategory,
@@ -14,18 +15,31 @@ import {
   toggleSearchButton,
   setfilterBySorting,
   setFilterByPriceInterval,
-  setFilterByUserInput
+  setFilterByUserInput,
+  login,
+  logout,
+  openSideBar,
+  closeSideBar,
+  addProduct,
+  minusProduct,
+  toggleFav
 } from "./actions";
 
-interface IProps {
-  loadProduct: Redux.Action;
-  catogery: Redux.Action;
-}
-class App extends React.Component<any, IProps> {
+class App extends React.Component<any, any> {
   public render() {
     return (
       <div className="App">
-        <Header />
+        <Header
+          authentication={this.props.authentication}
+          login={this.props.login}
+          logout={this.props.logout}
+          user={this.props.user}
+          UIElements={this.props.UIElements}
+          openSideBar={this.props.openSideBar}
+          closeSideBar={this.props.closeSideBar}
+          products={this.props.products}
+          minusProduct={this.props.minusProduct}
+        />
         <TopBaner />
         <SecondaryBanner />
         <Products
@@ -38,6 +52,9 @@ class App extends React.Component<any, IProps> {
           setFilterByPriceInterval={this.props.setFilterByPriceInterval}
           setFilterByUserInput={this.props.setFilterByUserInput}
           UIElements={this.props.UIElements}
+          addProduct={this.props.addProduct}
+          user={this.props.user}
+          toggleFav={this.props.toggleFav}
         />
         <Footer />
       </div>
@@ -75,6 +92,27 @@ function mapDispatchToProps(dispatch: Redux.Dispatch) {
     },
     toggleSearchButton: (event: React.MouseEvent) => {
       dispatch(toggleSearchButton(event));
+    },
+    login: () => {
+      login()(dispatch);
+    },
+    logout: () => {
+      dispatch(logout());
+    },
+    openSideBar: () => {
+      dispatch(openSideBar());
+    },
+    closeSideBar: () => {
+      dispatch(closeSideBar());
+    },
+    addProduct: (event: React.MouseEvent) => {
+      dispatch(addProduct(event));
+    },
+    minusProduct: (event: React.MouseEvent) => {
+      dispatch(minusProduct(event));
+    },
+    toggleFav: (productId: string, favorite: boolean) => {
+      dispatch(toggleFav(productId, favorite));
     }
   };
 }

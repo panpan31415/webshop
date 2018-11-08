@@ -5,13 +5,17 @@
   "dependencies": {
     "@types/lodash": "^4.14.117",
     "@types/react-redux": "^6.0.9",
+    "@types/react-router": "^4.4.1",
     "@types/redux-thunk": "^2.1.0",
     "ajv": "^6.5.4",
     "lodash": "^4.17.11",
     "node-sass": "^4.9.4",
+    "npm": "^6.4.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts-ts": "3.1.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"

@@ -1,12 +1,28 @@
 import * as React from "react";
 import HamburgButton from "./HamburgButton";
 import TopBar from "./TopBar";
+import {
+  IAuthentication,
+  IUser,
+  lUIElementsState
+} from "../reducers/stateTypes";
+import ShopingcartSidePanel from "./ShopingcartSidePanel";
 
 interface IState {
   hanbrugBtnActive: boolean;
 }
-
-class Header extends React.Component<any, IState> {
+interface IProps {
+  authentication: IAuthentication;
+  user: IUser;
+  login: () => void;
+  logout: () => void;
+  UIElements: lUIElementsState;
+  openSideBar: () => void;
+  closeSideBar: () => void;
+  products: {};
+  minusProduct: (event: React.MouseEvent) => void;
+}
+class Header extends React.Component<IProps, IState, any> {
   private navBar = React.createRef<HTMLDivElement>();
   constructor(props: any) {
     super(props);
@@ -45,9 +61,21 @@ class Header extends React.Component<any, IState> {
     } else {
       navbarListActive = "";
     }
+
+    let itemQuantityInShopingCart = this.props.user.shopingCart.reduce(
+      (acc, sItem) => {
+        return acc + sItem.quantity;
+      },
+      0
+    );
+
     return (
       <div className="header">
-        <TopBar />
+        <TopBar
+          authentication={this.props.authentication}
+          login={this.props.login}
+          logout={this.props.logout}
+        />
         <nav className="nav-bar" id="nav-bar" ref={this.navBar}>
           <section className="nav-bar__section">
             <a className="nav-bar__logo">
@@ -76,12 +104,35 @@ class Header extends React.Component<any, IState> {
                   <use xlinkHref="images/icons/symbol-defs.svg#icon-search" />
                 </svg>
               </div>
-              <div className="nav-bar__icon">
+              <div
+                className={`nav-bar__icon ${
+                  this.props.UIElements.shoppingcart.button
+                    ? "shoppingcart--active"
+                    : ""
+                }`}
+                onClick={this.props.openSideBar}
+              >
+                <span
+                  className={`notification ${
+                    itemQuantityInShopingCart > 0 ? "notification--active" : ""
+                  }`}
+                >
+                  {itemQuantityInShopingCart}
+                </span>
                 <svg>
                   <use xlinkHref="images/icons/symbol-defs.svg#icon-shopping-cart" />
                 </svg>
               </div>
               <div className="nav-bar__icon">
+                <span
+                  className={`notification ${
+                    this.props.user.favorite.length > 0
+                      ? "notification--active"
+                      : ""
+                  }`}
+                >
+                  {this.props.user.favorite.length}
+                </span>
                 <svg>
                   <use xlinkHref="images/icons/symbol-defs.svg#icon-heart-o" />
                 </svg>
@@ -95,6 +146,16 @@ class Header extends React.Component<any, IState> {
             </div>
           </section>
         </nav>
+        <ShopingcartSidePanel
+          visible={
+            this.props.UIElements.shoppingcart.button &&
+            this.props.authentication.loginStatus
+          }
+          close={this.props.closeSideBar}
+          user={this.props.user}
+          products={this.props.products}
+          minusProduct={this.props.minusProduct}
+        />
       </div>
     );
   }

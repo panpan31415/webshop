@@ -3,7 +3,12 @@ import GridControls from "./GridControls";
 import LoadMore from "./LoadMore";
 import ProductGrid from "./ProductGrid";
 import * as _ from "lodash";
-import { IProduct, IFilter, lUIElementsState } from "../reducers/stateTypes";
+import {
+  IProduct,
+  IFilter,
+  lUIElementsState,
+  IUser
+} from "../reducers/stateTypes";
 const Products: React.SFC<{
   filter: IFilter;
   products: {};
@@ -14,6 +19,9 @@ const Products: React.SFC<{
   setFilterByPriceInterval: (event: React.MouseEvent) => void;
   setFilterByUserInput: (event: React.FormEvent) => void;
   UIElements: lUIElementsState;
+  addProduct: (event: React.MouseEvent) => void;
+  user: IUser;
+  toggleFav: (productId: string, favorite: boolean) => void;
 }> = ({
   products,
   setfilterByCategory,
@@ -23,7 +31,10 @@ const Products: React.SFC<{
   toggleFilterButton,
   toggleSearchButton,
   setFilterByPriceInterval,
-  setFilterByUserInput
+  setFilterByUserInput,
+  addProduct,
+  user,
+  toggleFav
 }) => {
   let _filteredProducts = undefined;
 
@@ -96,7 +107,12 @@ const Products: React.SFC<{
           setFilterByPriceInterval={setFilterByPriceInterval}
           setFilterByUserInput={setFilterByUserInput}
         />
-        <ProductGrid filteredProducts={_filteredProducts} />
+        <ProductGrid
+          filteredProducts={_filteredProducts}
+          addProduct={addProduct}
+          user={user}
+          toggleFav={toggleFav}
+        />
         <LoadMore />
       </section>
     </div>

@@ -23,3 +23,22 @@
         transform-origin: 100% 0;
     }
 }
+
+@keyframes opacity-easy-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
+
+@keyframes opacity-esay-out {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}

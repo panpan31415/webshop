@@ -1,0 +1,16 @@
+.notification {
+  display: none;
+  padding: 0 3px;
+  font-family: Arial, sans-serif;
+  background-color: $purple;
+  color: #fff;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  &--active {
+    display: flex;
+  }
+}

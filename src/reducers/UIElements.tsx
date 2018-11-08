@@ -5,7 +5,9 @@ import {
   TOGGLE_SEARCH_BUTTON,
   FILTER_PRODUCTS_BY_SORTING,
   FILTER_PRODUCTS_BY_PRICE_INTERVAL,
-  FILTER_PRODUCTS_BY_CATEGORY
+  FILTER_PRODUCTS_BY_CATEGORY,
+  OPEN_SHOPPINGCART_SIDEBAR,
+  CLOSE_SHOPPINGCART_SIDEBAR
 } from "../actions/type";
 
 const initialUIElementsState: lUIElementsState = {
@@ -36,6 +38,10 @@ const initialUIElementsState: lUIElementsState = {
   },
   search: {
     active: false
+  },
+  shoppingcart: {
+    button: false,
+    sidePanel: false
   }
 };
 
@@ -77,7 +83,24 @@ const UIElements: Redux.Reducer<lUIElementsState, Redux.AnyAction> = (
         }
       };
     }
-
+    case OPEN_SHOPPINGCART_SIDEBAR: {
+      return {
+        ...UIElementsState,
+        shoppingcart: {
+          button: true,
+          sidePanel: true
+        }
+      };
+    }
+    case CLOSE_SHOPPINGCART_SIDEBAR: {
+      return {
+        ...UIElementsState,
+        shoppingcart: {
+          button: false,
+          sidePanel: false
+        }
+      };
+    }
     default: {
       return UIElementsState;
     }
