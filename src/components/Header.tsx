@@ -7,6 +7,7 @@ import {
   lUIElementsState
 } from "../reducers/stateTypes";
 import ShopingcartSidePanel from "./ShopingcartSidePanel";
+import { NavLink } from "react-router-dom";
 
 interface IState {
   hanbrugBtnActive: boolean;
@@ -86,16 +87,24 @@ class Header extends React.Component<IProps, IState, any> {
               id="nav-bar__list"
             >
               <li className="nav-bar__item">
-                <a href="">home</a>
+                <NavLink to="/home" activeClassName="nav-bar__item--active">
+                  home
+                </NavLink>
               </li>
               <li className="nav-bar__item">
-                <a href="">Products</a>
+                <NavLink to="/products" activeClassName="nav-bar__item--active">
+                  Products
+                </NavLink>
               </li>
               <li className="nav-bar__item">
-                <a href="">about</a>
+                <NavLink to="/about" activeClassName="nav-bar__item--active">
+                  about
+                </NavLink>
               </li>
               <li className="nav-bar__item">
-                <a href="">Contact</a>
+                <NavLink to="/contact" activeClassName="nav-bar__item--active">
+                  Contact
+                </NavLink>
               </li>
             </ul>
             <div className="nav-bar__icon-group">
