@@ -11,7 +11,10 @@ const ShoppingCartItem: React.SFC<{
   return (
     <div className="side-panel__item">
       <div className="side-panel__item__img">
-        <img src={shoppingCartItem.product.img_url} alt="productImg" />
+        <img
+          src={require("../" + shoppingCartItem.product.img_url)}
+          alt="productImg"
+        />
 
         <div
           className="side-panel__item__img-cover"
