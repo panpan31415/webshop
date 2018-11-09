@@ -23,7 +23,10 @@ const ShoppingCartItem: React.SFC<{
         >
           <div className="side-panel__item__img-close-btn">
             <svg>
-              <use xlinkHref="images/icons/symbol-defs.svg#icon-close" />
+              <use
+                xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+                  "#icon-close"}`}
+              />
             </svg>
           </div>
         </div>
