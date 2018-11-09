@@ -47,11 +47,16 @@ class TopBaner extends React.Component<any, IState> {
     }, 7000);
   }
   public render() {
+    console.log(
+      "url(" + require(`../images/banner-0${this.state.index}.jpg`) + ")"
+    );
     return (
       <div
         className="top-banner"
         style={{
-          backgroundImage: `url(images/slide-0${this.state.index}.jpg)`
+          backgroundImage:
+            "url(" + require(`../images/slide-0${this.state.index}.jpg`) + ")",
+          backgroundPosition: "cover"
         }}
       >
         <button

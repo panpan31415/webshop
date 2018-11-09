@@ -32,22 +32,34 @@ const Footer: React.SFC = () => {
           <div className="footer__social-medias">
             <div className="footer__social-medias__icon">
               <svg>
-                <use xlinkHref="images/icons/symbol-defs.svg#icon-facebook" />
+                <use
+                  xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+                    "#icon-facebook"}`}
+                />
               </svg>
             </div>
             <div className="footer__social-medias__icon">
               <svg>
-                <use xlinkHref="images/icons/symbol-defs.svg#icon-instagram" />
+                <use
+                  xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+                    "#icon-instagram"}`}
+                />
               </svg>
             </div>
             <div className="footer__social-medias__icon">
               <svg>
-                <use xlinkHref="images/icons/symbol-defs.svg#icon-pinterest" />
+                <use
+                  xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+                    "#icon-pinterest"}`}
+                />
               </svg>
             </div>
             <div className="footer__social-medias__icon">
               <svg>
-                <use xlinkHref="images/icons/symbol-defs.svg#icon-google" />
+                <use
+                  xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+                    "#icon-google"}`}
+                />
               </svg>
             </div>
           </div>
@@ -68,27 +80,42 @@ const Footer: React.SFC = () => {
           <ul className="footer__payment-list">
             <li>
               <a href="#">
-                <img src="images/icons/icon-pay-01.png" alt="ICON-PAY" />
+                <img
+                  src={require("../images/icons/icon-pay-01.png")}
+                  alt="ICON-PAY"
+                />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="images/icons/icon-pay-02.png" alt="ICON-PAY" />
+                <img
+                  src={require("../images/icons/icon-pay-02.png")}
+                  alt="ICON-PAY"
+                />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="images/icons/icon-pay-03.png" alt="ICON-PAY" />
+                <img
+                  src={require("../images/icons/icon-pay-03.png")}
+                  alt="ICON-PAY"
+                />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="images/icons/icon-pay-04.png" alt="ICON-PAY" />
+                <img
+                  src={require("../images/icons/icon-pay-04.png")}
+                  alt="ICON-PAY"
+                />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="images/icons/icon-pay-05.png" alt="ICON-PAY" />
+                <img
+                  src={require("../images/icons/icon-pay-05.png")}
+                  alt="ICON-PAY"
+                />
               </a>
             </li>
           </ul>
@@ -97,7 +124,10 @@ const Footer: React.SFC = () => {
           Copyright ©2018 All rights reserved | This template is made with
           <span className="footer__copyright--heart">
             <svg>
-              <use xlinkHref="images/icons/symbol-defs.svg#icon-heart-o" />
+              <use
+                xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+                  "#icon-heart-o"}`}
+              />
             </svg>
           </span>{" "}
           by

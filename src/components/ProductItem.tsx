@@ -13,11 +13,17 @@ export const ProductItem: React.SFC<{
   const initFavIcon = () => {
     return favIcon ? (
       <svg key={productId + "icon-heart"}>
-        <use xlinkHref="images/icons/symbol-defs.svg#icon-heart" />
+        <use
+          xlinkHref={require("../images/icons/symbol-defs.svg") + "#icon-heart"}
+        />
       </svg>
     ) : (
       <svg key={productId + "icon-heart-o"}>
-        <use xlinkHref="images/icons/symbol-defs.svg#icon-heart-o" />
+        <use
+          xlinkHref={
+            require("../images/icons/symbol-defs.svg") + "#icon-heart-o"
+          }
+        />
       </svg>
     );
   };
@@ -25,7 +31,7 @@ export const ProductItem: React.SFC<{
   return (
     <div className="productGrid__item">
       <div className="productGrid__item__img-container">
-        <img src={img_url} alt="IMG-PRODUCT" />
+        <img src={require(`../${img_url}`)} alt="IMG-PRODUCT" />
         <div className="productGrid__item__button-container">
           <button
             className="round-corner-button productGrid__item__button"

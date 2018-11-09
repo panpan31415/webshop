@@ -3,12 +3,14 @@ import GridControls from "./GridControls";
 import LoadMore from "./LoadMore";
 import ProductGrid from "./ProductGrid";
 import * as _ from "lodash";
+
 import {
   IProduct,
   IFilter,
   lUIElementsState,
   IUser
 } from "../reducers/stateTypes";
+import { Route } from "react-router-dom";
 const Products: React.SFC<{
   filter: IFilter;
   products: {};
@@ -36,8 +38,7 @@ const Products: React.SFC<{
   user,
   toggleFav
 }) => {
-  let _filteredProducts = undefined;
-
+  let _filteredProducts: Array<any> = [];
   const categoryFilter: (product: IProduct) => boolean = product => {
     if (filter.category.type === "all") {
       return true;
@@ -107,13 +108,24 @@ const Products: React.SFC<{
           setFilterByPriceInterval={setFilterByPriceInterval}
           setFilterByUserInput={setFilterByUserInput}
         />
-        <ProductGrid
-          filteredProducts={_filteredProducts}
-          addProduct={addProduct}
-          user={user}
-          toggleFav={toggleFav}
+        <Route
+          path="/products/:category"
+          render={({ match }) => {
+            console.log("prodc:114", match);
+
+            return (
+              <React.Fragment>
+                <ProductGrid
+                  filteredProducts={_filteredProducts}
+                  addProduct={addProduct}
+                  user={user}
+                  toggleFav={toggleFav}
+                />
+                <LoadMore />
+              </React.Fragment>
+            );
+          }}
         />
-        <LoadMore />
       </section>
     </div>
   );

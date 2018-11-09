@@ -79,9 +79,9 @@ class Header extends React.Component<IProps, IState, any> {
         />
         <nav className="nav-bar" id="nav-bar" ref={this.navBar}>
           <section className="nav-bar__section">
-            <a className="nav-bar__logo">
-              <img src="images/icons/logo-01.png" alt="LOGO" />
-            </a>
+            <NavLink className="nav-bar__logo" to="/">
+              <img src={require("../images/icons/logo-01.png")} alt="LOGO" />
+            </NavLink>
             <ul
               className={`nav-bar__list ${navbarListActive}`}
               id="nav-bar__list"
@@ -129,7 +129,10 @@ class Header extends React.Component<IProps, IState, any> {
                   {itemQuantityInShopingCart}
                 </span>
                 <svg>
-                  <use xlinkHref="images/icons/symbol-defs.svg#icon-shopping-cart" />
+                  <use
+                    xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+                      "#icon-shopping-cart"}`}
+                  />
                 </svg>
               </div>
               <div className="nav-bar__icon">
@@ -143,7 +146,10 @@ class Header extends React.Component<IProps, IState, any> {
                   {this.props.user.favorite.length}
                 </span>
                 <svg>
-                  <use xlinkHref="images/icons/symbol-defs.svg#icon-heart-o" />
+                  <use
+                    xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+                      "#icon-heart-o"}`}
+                  />
                 </svg>
               </div>
               <div className="nav-bar__icon nav-bar__hambrug_icon">

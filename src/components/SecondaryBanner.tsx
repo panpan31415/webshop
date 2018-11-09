@@ -10,7 +10,7 @@ const SecondaryBanner: React.SFC = () => {
           <button className="sec-banner__button">
             <span className="sec-banner__button-text">Shop now</span>
           </button>
-          <img src="images/banner-01.jpg" alt="IMG-BANNER" />
+          <img src={require("../images/banner-01.jpg")} alt="IMG-BANNER" />
         </div>
         <div className="sec-banner__item">
           <h2 className="sec-banner__item-title">Men</h2>
@@ -18,7 +18,7 @@ const SecondaryBanner: React.SFC = () => {
           <button className="sec-banner__button">
             <span className="sec-banner__button-text">Shop now</span>
           </button>
-          <img src="images/banner-02.jpg" alt="IMG-BANNER" />
+          <img src={require("../images/banner-02.jpg")} alt="IMG-BANNER" />
         </div>
         <div className="sec-banner__item">
           <h2 className="sec-banner__item-title">Accessories</h2>
@@ -26,7 +26,7 @@ const SecondaryBanner: React.SFC = () => {
           <button className="sec-banner__button">
             <span className="sec-banner__button-text">Shop now</span>
           </button>
-          <img src="images/banner-03.jpg" alt="IMG-BANNER" />
+          <img src={require("../images/banner-03.jpg")} alt="IMG-BANNER" />
         </div>
       </section>
     </div>

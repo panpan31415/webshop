@@ -636,14 +636,15 @@ body {
     align-items: center; }
   .GridControls__type-item {
     margin-right: 2rem; }
-    .GridControls__type-item button {
+    .GridControls__type-item a {
       display: block;
       background-color: transparent;
       border: 1px solid transparent;
       padding: 0;
       transition: all 0.5s;
+      text-decoration: none;
       cursor: pointer; }
-      .GridControls__type-item button:hover, .GridControls__type-item button:focus {
+      .GridControls__type-item a:hover, .GridControls__type-item a:focus {
         color: #222;
         outline: none; }
   .GridControls__function-group {

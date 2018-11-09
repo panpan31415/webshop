@@ -1,6 +1,6 @@
 import * as React from "react";
 import { lUIElementsState } from "./../reducers/stateTypes";
-
+import { Link } from "react-router-dom";
 const GridControls: React.SFC<{
   setfilterByCategory: (event: React.MouseEvent) => void;
   UIElements: lUIElementsState;
@@ -22,12 +22,17 @@ const GridControls: React.SFC<{
 }) => {
   const filer_icon = UIElements.filter.active ? (
     <svg>
-      <use xlinkHref="images/icons/symbol-defs.svg#icon-close" key="close" />
+      <use
+        xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+          "#icon-close"}`}
+        key="close"
+      />
     </svg>
   ) : (
     <svg>
       <use
-        xlinkHref="images/icons/symbol-defs.svg#icon-filter_list"
+        xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+          "#icon-filter_list"}`}
         key="filter"
       />
     </svg>
@@ -35,11 +40,19 @@ const GridControls: React.SFC<{
 
   const search_icon = UIElements.search.active ? (
     <svg>
-      <use xlinkHref="images/icons/symbol-defs.svg#icon-close" key="close" />
+      <use
+        xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+          "#icon-close"}`}
+        key="close"
+      />
     </svg>
   ) : (
     <svg>
-      <use xlinkHref="images/icons/symbol-defs.svg#icon-search" key="search" />
+      <use
+        xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+          "#icon-search"}`}
+        key="Search"
+      />
     </svg>
   );
 
@@ -48,7 +61,8 @@ const GridControls: React.SFC<{
       <div className="GridControls">
         <ul className="GridControls__types">
           <li className="GridControls__type-item">
-            <button
+            <Link
+              to="/products/all"
               data-category="all"
               onClick={setfilterByCategory}
               className={
@@ -58,10 +72,11 @@ const GridControls: React.SFC<{
               }
             >
               All Products
-            </button>
+            </Link>
           </li>
           <li className="GridControls__type-item">
-            <button
+            <Link
+              to="/products/women"
               data-category="women"
               onClick={setfilterByCategory}
               className={
@@ -71,10 +86,11 @@ const GridControls: React.SFC<{
               }
             >
               Women
-            </button>
+            </Link>
           </li>
           <li className="GridControls__type-item">
-            <button
+            <Link
+              to="/products/men"
               data-category="men"
               onClick={setfilterByCategory}
               className={
@@ -84,11 +100,12 @@ const GridControls: React.SFC<{
               }
             >
               Men
-            </button>
+            </Link>
           </li>
 
           <li className="GridControls__type-item">
-            <button
+            <Link
+              to="/products/bags"
               data-category="bags"
               onClick={setfilterByCategory}
               className={
@@ -98,10 +115,11 @@ const GridControls: React.SFC<{
               }
             >
               Bag
-            </button>
+            </Link>
           </li>
           <li className="GridControls__type-item">
-            <button
+            <Link
+              to="/products/shoes"
               data-category="shoes"
               onClick={setfilterByCategory}
               className={
@@ -111,10 +129,11 @@ const GridControls: React.SFC<{
               }
             >
               Shoes
-            </button>
+            </Link>
           </li>
           <li className="GridControls__type-item">
-            <button
+            <Link
+              to="/products/watch"
               data-category="watch"
               onClick={setfilterByCategory}
               className={
@@ -124,7 +143,7 @@ const GridControls: React.SFC<{
               }
             >
               Watches
-            </button>
+            </Link>
           </li>
         </ul>
         <div className="GridControls__function-group">
