@@ -30,7 +30,10 @@ const ShopingcartSidePanel: React.SFC<{
         <h3>Your Cart</h3>
         <div className="side-panel__close" onClick={close}>
           <svg>
-            <use xlinkHref="images/icons/symbol-defs.svg#icon-close" />
+            <use
+              xlinkHref={`${require("../images/icons/symbol-defs.svg") +
+                "#icon-close"}`}
+            />
           </svg>
         </div>
       </div>
