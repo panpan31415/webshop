@@ -10,6 +10,7 @@ const GridControls: React.SFC<{
   setFilterByPriceInterval: (event: React.MouseEvent) => void;
   setFilterByUserInput: (event: React.FormEvent) => void;
   searchText: string;
+  url: string;
 }> = ({
   setfilterByCategory,
   UIElements,
@@ -18,7 +19,8 @@ const GridControls: React.SFC<{
   setfilterBySorting,
   setFilterByPriceInterval,
   setFilterByUserInput,
-  searchText
+  searchText,
+  url
 }) => {
   const filer_icon = UIElements.filter.active ? (
     <svg>
@@ -62,7 +64,7 @@ const GridControls: React.SFC<{
         <ul className="GridControls__types">
           <li className="GridControls__type-item">
             <Link
-              to="/products/all"
+              to={`${url}/all`}
               data-category="all"
               onClick={setfilterByCategory}
               className={
@@ -76,7 +78,7 @@ const GridControls: React.SFC<{
           </li>
           <li className="GridControls__type-item">
             <Link
-              to="/products/women"
+              to={`${url}/women`}
               data-category="women"
               onClick={setfilterByCategory}
               className={
@@ -90,7 +92,7 @@ const GridControls: React.SFC<{
           </li>
           <li className="GridControls__type-item">
             <Link
-              to="/products/men"
+              to={`${url}/men`}
               data-category="men"
               onClick={setfilterByCategory}
               className={
@@ -105,7 +107,7 @@ const GridControls: React.SFC<{
 
           <li className="GridControls__type-item">
             <Link
-              to="/products/bags"
+              to={`${url}/bags`}
               data-category="bags"
               onClick={setfilterByCategory}
               className={
@@ -119,7 +121,7 @@ const GridControls: React.SFC<{
           </li>
           <li className="GridControls__type-item">
             <Link
-              to="/products/shoes"
+              to={`${url}/shoes`}
               data-category="shoes"
               onClick={setfilterByCategory}
               className={
@@ -133,7 +135,7 @@ const GridControls: React.SFC<{
           </li>
           <li className="GridControls__type-item">
             <Link
-              to="/products/watch"
+              to={`${url}/watch`}
               data-category="watch"
               onClick={setfilterByCategory}
               className={

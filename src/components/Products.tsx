@@ -10,7 +10,7 @@ import {
   lUIElementsState,
   IUser
 } from "../reducers/stateTypes";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 const Products: React.SFC<{
   filter: IFilter;
   products: {};
@@ -24,6 +24,7 @@ const Products: React.SFC<{
   addProduct: (event: React.MouseEvent) => void;
   user: IUser;
   toggleFav: (productId: string, favorite: boolean) => void;
+  url: string;
 }> = ({
   products,
   setfilterByCategory,
@@ -36,7 +37,8 @@ const Products: React.SFC<{
   setFilterByUserInput,
   addProduct,
   user,
-  toggleFav
+  toggleFav,
+  url
 }) => {
   let _filteredProducts: Array<any> = [];
   const categoryFilter: (product: IProduct) => boolean = product => {
@@ -107,12 +109,12 @@ const Products: React.SFC<{
           setfilterBySorting={setfilterBySorting}
           setFilterByPriceInterval={setFilterByPriceInterval}
           setFilterByUserInput={setFilterByUserInput}
+          url={url}
         />
-        <Route
-          path="/products/:category"
-          render={({ match }) => {
-            console.log("prodc:114", match);
 
+        <Route
+          path={`${url}/:category`}
+          render={() => {
             return (
               <React.Fragment>
                 <ProductGrid
@@ -126,6 +128,7 @@ const Products: React.SFC<{
             );
           }}
         />
+        <Redirect to={`${url}/all`} />
       </section>
     </div>
   );

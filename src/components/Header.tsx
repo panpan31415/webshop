@@ -79,7 +79,7 @@ class Header extends React.Component<IProps, IState, any> {
         />
         <nav className="nav-bar" id="nav-bar" ref={this.navBar}>
           <section className="nav-bar__section">
-            <NavLink className="nav-bar__logo" to="/">
+            <NavLink className="nav-bar__logo" to={`/home`}>
               <img src={require("../images/icons/logo-01.png")} alt="LOGO" />
             </NavLink>
             <ul
@@ -87,22 +87,28 @@ class Header extends React.Component<IProps, IState, any> {
               id="nav-bar__list"
             >
               <li className="nav-bar__item">
-                <NavLink to="/home" activeClassName="nav-bar__item--active">
+                <NavLink to={`/home`} activeClassName="nav-bar__item--active">
                   home
                 </NavLink>
               </li>
               <li className="nav-bar__item">
-                <NavLink to="/products" activeClassName="nav-bar__item--active">
-                  Products
+                <NavLink
+                  to={`/products`}
+                  activeClassName="nav-bar__item--active"
+                >
+                  products
                 </NavLink>
               </li>
               <li className="nav-bar__item">
-                <NavLink to="/about" activeClassName="nav-bar__item--active">
+                <NavLink to={`/about`} activeClassName="nav-bar__item--active">
                   about
                 </NavLink>
               </li>
               <li className="nav-bar__item">
-                <NavLink to="/contact" activeClassName="nav-bar__item--active">
+                <NavLink
+                  to={`/contact`}
+                  activeClassName="nav-bar__item--active"
+                >
                   Contact
                 </NavLink>
               </li>

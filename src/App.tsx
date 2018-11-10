@@ -1,7 +1,12 @@
 import * as RA_RE from "react-redux";
 import * as React from "react";
 import * as Redux from "redux";
-import { Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Products from "./components/Products";
@@ -28,80 +33,99 @@ import {
 class App extends React.Component<any, any> {
   public render() {
     return (
-      <div className="App">
-        <Header
-          authentication={this.props.authentication}
-          login={this.props.login}
-          logout={this.props.logout}
-          user={this.props.user}
-          UIElements={this.props.UIElements}
-          openSideBar={this.props.openSideBar}
-          closeSideBar={this.props.closeSideBar}
-          products={this.props.products}
-          minusProduct={this.props.minusProduct}
-        />
-        <Switch>
+      <Router>
+        <div className="App">
           <Route
             path="/"
-            exact
-            render={() => {
+            render={({ match }) => {
+              console.log(match.path);
               return (
                 <React.Fragment>
-                  <TopBaner />
-                  <SecondaryBanner />
-                  <div style={{ marginTop: "8rem" }} />
-                </React.Fragment>
-              );
-            }}
-          />
+                  <Header
+                    authentication={this.props.authentication}
+                    login={this.props.login}
+                    logout={this.props.logout}
+                    user={this.props.user}
+                    UIElements={this.props.UIElements}
+                    openSideBar={this.props.openSideBar}
+                    closeSideBar={this.props.closeSideBar}
+                    products={this.props.products}
+                    minusProduct={this.props.minusProduct}
+                  />
+                  <Route
+                    path="/:page"
+                    render={() => (
+                      <React.Fragment>
+                        <Switch>
+                          <Route
+                            path="/home"
+                            render={() => {
+                              return (
+                                <React.Fragment>
+                                  <TopBaner />
+                                  <SecondaryBanner />
+                                  <div style={{ marginTop: "8rem" }} />
+                                </React.Fragment>
+                              );
+                            }}
+                          />
 
-          <Route
-            path="/home"
-            render={() => {
-              return (
-                <React.Fragment>
-                  <TopBaner />
-                  <SecondaryBanner />
-                  <div style={{ marginTop: "8rem" }} />
+                          <Route
+                            path="/products"
+                            render={({ match }) => {
+                              return (
+                                <Products
+                                  filter={this.props.filter}
+                                  products={this.props.products}
+                                  setfilterByCategory={
+                                    this.props.setfilterByCategory
+                                  }
+                                  toggleFilterButton={
+                                    this.props.toggleFilterButton
+                                  }
+                                  toggleSearchButton={
+                                    this.props.toggleSearchButton
+                                  }
+                                  setfilterBySorting={
+                                    this.props.setfilterBySorting
+                                  }
+                                  setFilterByPriceInterval={
+                                    this.props.setFilterByPriceInterval
+                                  }
+                                  setFilterByUserInput={
+                                    this.props.setFilterByUserInput
+                                  }
+                                  UIElements={this.props.UIElements}
+                                  addProduct={this.props.addProduct}
+                                  user={this.props.user}
+                                  toggleFav={this.props.toggleFav}
+                                  url={match.url}
+                                />
+                              );
+                            }}
+                          />
+                          <Route
+                            render={() => {
+                              return (
+                                <section className="pageNotFound">
+                                  {" "}
+                                  <h3>Page not found :( </h3>{" "}
+                                </section>
+                              );
+                            }}
+                          />
+                        </Switch>{" "}
+                      </React.Fragment>
+                    )}
+                  />
+                  <Footer />
                 </React.Fragment>
               );
             }}
           />
-          <Route
-            path="/products/"
-            exact={false}
-            render={() => {
-              return (
-                <Products
-                  filter={this.props.filter}
-                  products={this.props.products}
-                  setfilterByCategory={this.props.setfilterByCategory}
-                  toggleFilterButton={this.props.toggleFilterButton}
-                  toggleSearchButton={this.props.toggleSearchButton}
-                  setfilterBySorting={this.props.setfilterBySorting}
-                  setFilterByPriceInterval={this.props.setFilterByPriceInterval}
-                  setFilterByUserInput={this.props.setFilterByUserInput}
-                  UIElements={this.props.UIElements}
-                  addProduct={this.props.addProduct}
-                  user={this.props.user}
-                  toggleFav={this.props.toggleFav}
-                />
-              );
-            }}
-          />
-          <Route
-            render={() => {
-              return (
-                <section className="pageNotFound">
-                  {" "}
-                  <h3>Page not found :( </h3>{" "}
-                </section>
-              );
-            }}
-          />
-        </Switch>
-        <Footer />
-      </div>
+          <Redirect to="/home" />
+        </div>
+      </Router>
     );
   }
 
