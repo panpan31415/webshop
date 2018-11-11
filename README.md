@@ -1,14 +1,15 @@
-another project trying to combine
+another project trying to practicing the follwing technologies
 
-CSS - flexbox grid
+CSS - flexbox, grid
 
-React redux, react-router
+React redux, react-router, ES6
 
 live-page: http://panpan.dk/webshop
 
 currenly: img url fixed
 
-problem left:
+- funcionality:
 
-2.redirect to login page
-3.authentication
+      add items to shopping cart.
+      delete item from shoping cart.
+      user login and logout
