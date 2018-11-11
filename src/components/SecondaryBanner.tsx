@@ -22,12 +22,12 @@ const SecondaryBanner: React.SFC = () => {
         </div>
         <div className="sec-banner__item">
           <h2 className="sec-banner__item-title">Accessories</h2>
-          <p className="sec-banner__item-season">New Trend</p>
+          <p className="sec-banner__item-season">New Trend</p>{" "}
           <button className="sec-banner__button">
             <span className="sec-banner__button-text">Shop now</span>
           </button>
           <img src={require("../images/banner-03.jpg")} alt="IMG-BANNER" />
-        </div>
+        </div>{" "}
       </section>
     </div>
   );

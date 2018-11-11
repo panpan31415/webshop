@@ -13,3 +13,5 @@ currenly: img url fixed
       add items to shopping cart.
       delete item from shoping cart.
       user login and logout
+
+Note: Not all links are working..
