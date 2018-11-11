@@ -95,7 +95,7 @@ const Products: React.SFC<{
     .filter(searchFilter)
     .filter(PriceIntervalFilter)
     .sort(sortMethod);
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   return (
     <div className="products">
       <section>
