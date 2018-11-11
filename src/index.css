@@ -194,6 +194,7 @@ body {
   display: inline-block;
   height: 4rem;
   line-height: 4rem;
+  text-decoration: none;
   padding: 0 2.5rem;
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
@@ -503,14 +504,18 @@ body {
       .nav-bar__item a:link,
       .nav-bar__item a:visited {
         display: block;
-        background-color: #6c7ae0;
         width: 100%;
         height: 100%;
         line-height: 4rem;
-        transition: background-color 0.5s; }
+        transition: background-color 0.5s;
+        background-color: #6c7ae0; }
       .nav-bar__item a:hover {
         background-color: #eee;
         color: #6c7ae0; }
+      .nav-bar__item--active {
+        color: #6c7ae0 !important;
+        text-decoration: none;
+        background-color: #eee !important; }
     .nav-bar__icon-group {
       padding-right: 1.5rem;
       grid-row: 1 / span 1;
@@ -1154,6 +1159,55 @@ body {
     right: 40rem;
     z-index: 999;
     opacity: .5; }
+
+.login section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.login__dialog {
+  transform: translateY(-100px);
+  border: 1px solid #333;
+  padding: 2rem;
+  width: 400px;
+  height: 200px;
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.923;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.login__title {
+  font-family: Poppins-Medium;
+  font-size: 14px;
+  padding: 0;
+  color: #222;
+  text-transform: capitalize; }
+
+.login__input {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5rem; }
+  .login__input label {
+    grid-column: 1 / span 1; }
+  .login__input input {
+    grid-column: 2 / span 3; }
+
+.login__buttons {
+  display: flex;
+  justify-content: space-between; }
+  .login__buttons button {
+    border: 1px solid currentColor;
+    width: 8rem;
+    padding: 0.5rem 2rem;
+    background-color: transparent;
+    cursor: pointer; }
+    .login__buttons button:focus, .login__buttons button:hover {
+      outline: none;
+      background-color: #6c7ae0;
+      color: #fff; }
 
 .notification {
   display: none;

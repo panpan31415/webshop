@@ -10,7 +10,7 @@ import {
   lUIElementsState,
   IUser
 } from "../reducers/stateTypes";
-import { Route, Redirect } from "react-router-dom";
+import { Route, match, Redirect, Switch } from "react-router-dom";
 const Products: React.SFC<{
   filter: IFilter;
   products: {};
@@ -24,7 +24,7 @@ const Products: React.SFC<{
   addProduct: (event: React.MouseEvent) => void;
   user: IUser;
   toggleFav: (productId: string, favorite: boolean) => void;
-  url: string;
+  match: match;
 }> = ({
   products,
   setfilterByCategory,
@@ -38,7 +38,7 @@ const Products: React.SFC<{
   addProduct,
   user,
   toggleFav,
-  url
+  match
 }) => {
   let _filteredProducts: Array<any> = [];
   const categoryFilter: (product: IProduct) => boolean = product => {
@@ -109,26 +109,30 @@ const Products: React.SFC<{
           setfilterBySorting={setfilterBySorting}
           setFilterByPriceInterval={setFilterByPriceInterval}
           setFilterByUserInput={setFilterByUserInput}
-          url={url}
+          match={match}
         />
-
-        <Route
-          path={`${url}/:category`}
-          render={() => {
-            return (
-              <React.Fragment>
-                <ProductGrid
-                  filteredProducts={_filteredProducts}
-                  addProduct={addProduct}
-                  user={user}
-                  toggleFav={toggleFav}
-                />
-                <LoadMore />
-              </React.Fragment>
-            );
-          }}
-        />
-        <Redirect to={`${url}/all`} />
+        <Switch>
+          <Route
+            path={`${match.path}/:category`}
+            render={({ match }) => {
+              return (
+                <React.Fragment>
+                  <ProductGrid
+                    filteredProducts={_filteredProducts}
+                    addProduct={addProduct}
+                    user={user}
+                    toggleFav={toggleFav}
+                  />
+                  <LoadMore />
+                </React.Fragment>
+              );
+            }}
+          />
+          <Route
+            path={`${match.path}`}
+            render={() => <Redirect to={"/products/all"} />}
+          />
+        </Switch>
       </section>
     </div>
   );

@@ -41,15 +41,12 @@ class TopBaner extends React.Component<any, IState> {
     });
   };
 
-  public componentDidMount() {
+  public componentDidUpdate() {
     setInterval(() => {
       this.slide(null);
     }, 7000);
   }
   public render() {
-    console.log(
-      "url(" + require(`../images/banner-0${this.state.index}.jpg`) + ")"
-    );
     return (
       <div
         className="top-banner"

@@ -13,6 +13,8 @@ import Products from "./components/Products";
 import SecondaryBanner from "./components/SecondaryBanner";
 import TopBaner from "./components/TopBanner";
 import * as _ from "lodash";
+import Login from "./components/Login";
+
 import {
   loadProduct,
   setfilterByCategory,
@@ -33,97 +35,101 @@ import {
 class App extends React.Component<any, any> {
   public render() {
     return (
-      <Router>
+      <Router basename="/webshop/">
         <div className="App">
-          <Route
-            path="/"
-            render={({ match }) => {
-              console.log(match.path);
-              return (
-                <React.Fragment>
-                  <Header
-                    authentication={this.props.authentication}
-                    login={this.props.login}
-                    logout={this.props.logout}
-                    user={this.props.user}
-                    UIElements={this.props.UIElements}
-                    openSideBar={this.props.openSideBar}
-                    closeSideBar={this.props.closeSideBar}
-                    products={this.props.products}
-                    minusProduct={this.props.minusProduct}
-                  />
-                  <Route
-                    path="/:page"
-                    render={() => (
-                      <React.Fragment>
-                        <Switch>
-                          <Route
-                            path="/home"
-                            render={() => {
-                              return (
-                                <React.Fragment>
-                                  <TopBaner />
-                                  <SecondaryBanner />
-                                  <div style={{ marginTop: "8rem" }} />
-                                </React.Fragment>
-                              );
-                            }}
-                          />
-
-                          <Route
-                            path="/products"
-                            render={({ match }) => {
-                              return (
-                                <Products
-                                  filter={this.props.filter}
-                                  products={this.props.products}
-                                  setfilterByCategory={
-                                    this.props.setfilterByCategory
-                                  }
-                                  toggleFilterButton={
-                                    this.props.toggleFilterButton
-                                  }
-                                  toggleSearchButton={
-                                    this.props.toggleSearchButton
-                                  }
-                                  setfilterBySorting={
-                                    this.props.setfilterBySorting
-                                  }
-                                  setFilterByPriceInterval={
-                                    this.props.setFilterByPriceInterval
-                                  }
-                                  setFilterByUserInput={
-                                    this.props.setFilterByUserInput
-                                  }
-                                  UIElements={this.props.UIElements}
-                                  addProduct={this.props.addProduct}
-                                  user={this.props.user}
-                                  toggleFav={this.props.toggleFav}
-                                  url={match.url}
-                                />
-                              );
-                            }}
-                          />
-                          <Route
-                            render={() => {
-                              return (
-                                <section className="pageNotFound">
-                                  {" "}
-                                  <h3>Page not found :( </h3>{" "}
-                                </section>
-                              );
-                            }}
-                          />
-                        </Switch>{" "}
-                      </React.Fragment>
-                    )}
-                  />
-                  <Footer />
-                </React.Fragment>
-              );
-            }}
+          <Header
+            authentication={this.props.authentication}
+            login={this.props.login}
+            logout={this.props.logout}
+            user={this.props.user}
+            UIElements={this.props.UIElements}
+            openSideBar={this.props.openSideBar}
+            closeSideBar={this.props.closeSideBar}
+            products={this.props.products}
+            minusProduct={this.props.minusProduct}
           />
-          <Redirect to="/home" />
+          <Switch>
+            <Route
+              path="/home"
+              exact={true}
+              render={() => {
+                return (
+                  <React.Fragment>
+                    <TopBaner />
+                    <SecondaryBanner />
+                    <div style={{ marginTop: "8rem" }} />
+                  </React.Fragment>
+                );
+              }}
+            />
+            <Route
+              path="/products"
+              render={({ match }) => {
+                return (
+                  <Products
+                    filter={this.props.filter}
+                    products={this.props.products}
+                    setfilterByCategory={this.props.setfilterByCategory}
+                    toggleFilterButton={this.props.toggleFilterButton}
+                    toggleSearchButton={this.props.toggleSearchButton}
+                    setfilterBySorting={this.props.setfilterBySorting}
+                    setFilterByPriceInterval={
+                      this.props.setFilterByPriceInterval
+                    }
+                    setFilterByUserInput={this.props.setFilterByUserInput}
+                    UIElements={this.props.UIElements}
+                    addProduct={this.props.addProduct}
+                    user={this.props.user}
+                    toggleFav={this.props.toggleFav}
+                    match={match}
+                  />
+                );
+              }}
+            />
+            <Route
+              path={"/"}
+              exact
+              render={() => {
+                return <Redirect to={"/home"} />;
+              }}
+            />
+            <Route
+              path={"/login"}
+              render={() => (
+                <Login
+                  login={this.props.login}
+                  authentication={this.props.authentication}
+                />
+              )}
+            />
+            <Route
+              path={"/about"}
+              render={() => (
+                <section style={{ height: "800px" }}>
+                  <h3>About page</h3>
+                </section>
+              )}
+            />
+            <Route
+              path={"/contact"}
+              render={() => (
+                <section style={{ height: "800px" }}>
+                  <h3>Contace page</h3>
+                </section>
+              )}
+            />
+            <Route
+              render={() => {
+                return (
+                  <section className="pageNotFound">
+                    {" "}
+                    <h3>Page not found :( </h3>{" "}
+                  </section>
+                );
+              }}
+            />
+          </Switch>
+          <Footer />
         </div>
       </Router>
     );

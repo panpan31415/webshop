@@ -93,6 +93,7 @@ export const toggleSearchButton = (event: React.MouseEvent) => {
 
 const LOGIN_API = "https://api.myjson.com/bins/gj2y6";
 export const login = () => (dispatch: Redux.Dispatch<Redux.Action>) => {
+  console.log("I am runing ... 95");
   dispatch({ type: AUTHENICATION_REQUEST_PENDING });
   fetch(LOGIN_API)
     .then(response => response.json())

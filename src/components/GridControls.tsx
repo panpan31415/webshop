@@ -1,6 +1,6 @@
 import * as React from "react";
 import { lUIElementsState } from "./../reducers/stateTypes";
-import { Link } from "react-router-dom";
+import { match, NavLink } from "react-router-dom";
 const GridControls: React.SFC<{
   setfilterByCategory: (event: React.MouseEvent) => void;
   UIElements: lUIElementsState;
@@ -10,7 +10,7 @@ const GridControls: React.SFC<{
   setFilterByPriceInterval: (event: React.MouseEvent) => void;
   setFilterByUserInput: (event: React.FormEvent) => void;
   searchText: string;
-  url: string;
+  match: match;
 }> = ({
   setfilterByCategory,
   UIElements,
@@ -20,7 +20,7 @@ const GridControls: React.SFC<{
   setFilterByPriceInterval,
   setFilterByUserInput,
   searchText,
-  url
+  match
 }) => {
   const filer_icon = UIElements.filter.active ? (
     <svg>
@@ -63,89 +63,66 @@ const GridControls: React.SFC<{
       <div className="GridControls">
         <ul className="GridControls__types">
           <li className="GridControls__type-item">
-            <Link
-              to={`${url}/all`}
+            <NavLink
+              to={`${match.path}/all`}
+              exact
               data-category="all"
               onClick={setfilterByCategory}
-              className={
-                UIElements.category.category_all
-                  ? "GridControls__type-item--active"
-                  : ""
-              }
+              activeClassName={"GridControls__type-item--active"}
             >
               All Products
-            </Link>
+            </NavLink>
           </li>
           <li className="GridControls__type-item">
-            <Link
-              to={`${url}/women`}
+            <NavLink
+              to={`${match.path}/women`}
               data-category="women"
               onClick={setfilterByCategory}
-              className={
-                UIElements.category.category_women
-                  ? "GridControls__type-item--active"
-                  : ""
-              }
+              activeClassName={"GridControls__type-item--active"}
             >
               Women
-            </Link>
+            </NavLink>
           </li>
           <li className="GridControls__type-item">
-            <Link
-              to={`${url}/men`}
+            <NavLink
+              to={`${match.path}/men`}
               data-category="men"
               onClick={setfilterByCategory}
-              className={
-                UIElements.category.category_men
-                  ? "GridControls__type-item--active"
-                  : ""
-              }
+              activeClassName={"GridControls__type-item--active"}
             >
               Men
-            </Link>
+            </NavLink>
           </li>
 
           <li className="GridControls__type-item">
-            <Link
-              to={`${url}/bags`}
+            <NavLink
+              to={`${match.url}/bags`}
               data-category="bags"
               onClick={setfilterByCategory}
-              className={
-                UIElements.category.category_bags
-                  ? "GridControls__type-item--active"
-                  : ""
-              }
+              activeClassName={"GridControls__type-item--active"}
             >
               Bag
-            </Link>
+            </NavLink>
           </li>
           <li className="GridControls__type-item">
-            <Link
-              to={`${url}/shoes`}
+            <NavLink
+              to={`${match.url}/shoes`}
               data-category="shoes"
               onClick={setfilterByCategory}
-              className={
-                UIElements.category.category_shoes
-                  ? "GridControls__type-item--active"
-                  : ""
-              }
+              activeClassName={"GridControls__type-item--active"}
             >
               Shoes
-            </Link>
+            </NavLink>
           </li>
           <li className="GridControls__type-item">
-            <Link
-              to={`${url}/watch`}
+            <NavLink
+              to={`${match.url}/watch`}
               data-category="watch"
               onClick={setfilterByCategory}
-              className={
-                UIElements.category.category_watch
-                  ? "GridControls__type-item--active"
-                  : ""
-              }
+              activeClassName={"GridControls__type-item--active"}
             >
               Watches
-            </Link>
+            </NavLink>
           </li>
         </ul>
         <div className="GridControls__function-group">
