@@ -15,9 +15,10 @@ class TopBaner extends React.Component<any, IState> {
         { index: 3, title: "Man Collection 2018", season: "Jacket & Coats" }
       ]
     };
+    this.slide = this.slide.bind(this);
   }
 
-  public slide: (event: React.MouseEvent) => void = event => {
+  public slide: (event: React.MouseEvent | null) => void = event => {
     let index = this.state.index;
     let direction: number = 0;
     if (event) {
@@ -41,6 +42,11 @@ class TopBaner extends React.Component<any, IState> {
     });
   };
 
+  public componentDidMount() {
+    setInterval(() => {
+      this.slide(null);
+    }, 7000);
+  }
   public render() {
     return (
       <div

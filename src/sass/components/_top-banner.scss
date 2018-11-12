@@ -3,7 +3,7 @@
   background-size: cover;
   color: $dark-gray;
   background-image: none;
-  transition: background-image 2s 0.2s;
+  transition: background-image 2s ease;
   &__arrow-btn {
     display: block;
     position: absolute;
@@ -50,7 +50,6 @@
     position: relative;
     span {
       display: block;
-      animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 0s rotate90;
     }
   }
   &__banner-text {
@@ -60,8 +59,7 @@
     margin-bottom: 4rem;
     text-transform: uppercase;
     span {
-      display: block;
-      animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 1s rotate90;
+      display: block; // animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 1s rotate90;
     }
   }
   &__button {
@@ -71,8 +69,7 @@
     font-size: 15px;
     line-height: 1.466667;
     text-transform: uppercase;
-    width: 16rem;
-    animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 2s rotate_minus90;
+    width: 16rem; // animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 2s rotate_minus90;
   }
 }
 

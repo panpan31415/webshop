@@ -241,7 +241,7 @@ body {
   background-size: cover;
   color: #222;
   background-image: none;
-  transition: background-image 2s 0.2s; }
+  transition: background-image 2s ease; }
   .top-banner__arrow-btn {
     display: block;
     position: absolute;
@@ -278,8 +278,7 @@ body {
     display: block;
     position: relative; }
     .top-banner__title span {
-      display: block;
-      animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 0s rotate90; }
+      display: block; }
   .top-banner__banner-text {
     font-family: PlayfairDisplay-Bold;
     font-size: 60px;
@@ -287,8 +286,7 @@ body {
     margin-bottom: 4rem;
     text-transform: uppercase; }
     .top-banner__banner-text span {
-      display: block;
-      animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 1s rotate90; }
+      display: block; }
   .top-banner__button {
     background-color: #6c7ae0;
     color: #fff;
@@ -296,8 +294,7 @@ body {
     font-size: 15px;
     line-height: 1.466667;
     text-transform: uppercase;
-    width: 16rem;
-    animation: 1s cubic-bezier(0.5, 0.31, 0.44, 1.01) 2s rotate_minus90; }
+    width: 16rem; }
 
 @media only screen and (max-width: 768px) {
   .top-banner__arrow-btn--left {
@@ -380,11 +377,11 @@ body {
     transform: rotate(360deg);
     transform-origin: 100% 0; } }
 
-@keyframes opacity-easy-in {
+@keyframes opacity-easy {
   from {
     opacity: 0; }
   to {
-    opacity: 0.5; } }
+    opacity: 1; } }
 
 @keyframes opacity-esay-out {
   from {
