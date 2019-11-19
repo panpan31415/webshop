@@ -1,4 +1,4 @@
-import * as RA_RE from "react-redux";
+import { connect } from "react-redux";
 import * as React from "react";
 import * as Redux from "redux";
 import {
@@ -191,7 +191,7 @@ function mapDispatchToProps(dispatch: Redux.Dispatch) {
   };
 }
 
-export default RA_RE.connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App);
