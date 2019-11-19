@@ -4,10 +4,12 @@ import TopBar from "./TopBar";
 import {
   IAuthentication,
   IUser,
-  lUIElementsState
+  lUIElementsState,
+  Ipayment
 } from "../reducers/stateTypes";
 import ShopingcartSidePanel from "./ShopingcartSidePanel";
 import { NavLink } from "react-router-dom";
+ import PaymentForm from "./PaymentForm";
 
 interface IState {
   hanbrugBtnActive: boolean;
@@ -22,6 +24,8 @@ interface IProps {
   closeSideBar: () => void;
   products: {};
   minusProduct: (event: React.MouseEvent) => void;
+  payment:Ipayment;
+  startPayment:(event: React.MouseEvent)=>void;
 }
 class Header extends React.Component<IProps, IState, any> {
   private navBar = React.createRef<HTMLDivElement>();
@@ -54,6 +58,9 @@ class Header extends React.Component<IProps, IState, any> {
   public componentDidMount() {
     window.addEventListener("scroll", this.scrollToFixed);
   }
+
+
+
 
   public render() {
     let navbarListActive = "";
@@ -180,7 +187,11 @@ class Header extends React.Component<IProps, IState, any> {
           user={this.props.user}
           products={this.props.products}
           minusProduct={this.props.minusProduct}
+          startPayment={this.props.startPayment}
         />
+        {
+         this.props.payment.status!==undefined?<PaymentForm/>:null
+        }
       </div>
     );
   }

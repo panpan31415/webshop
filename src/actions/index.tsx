@@ -18,7 +18,8 @@ import {
   CLOSE_SHOPPINGCART_SIDEBAR,
   ADD_PRODUCT,
   MIUNS_PRODUCT,
-  TOGGLE_FAV
+  TOGGLE_FAV,
+  START_PAYMENT
 } from "./type";
 const PRODUCTS_API = "https://api.myjson.com/bins/1gdxmm";
 export const loadProduct = () => (dispatch: Redux.Dispatch<Redux.Action>) => {
@@ -178,3 +179,11 @@ export const toggleFav: Redux.ActionCreator<{
     };
   }
 };
+
+
+export function startPayment(){
+  return {
+    type:START_PAYMENT,
+    payload:START_PAYMENT
+  }
+}

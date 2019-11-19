@@ -317,11 +317,15 @@ body {
 .round-corner-button {
   display: block;
   padding: 1rem 3rem;
+  text-align: center;
   cursor: pointer;
   border: none;
+  outline: none;
+  background-color: #222;
   border-radius: 100px; }
   .round-corner-button:hover, .round-corner-button:focus {
-    outline: none; }
+    color: #fff;
+    background-color: #6c7ae0; }
 
 .hambrug-button {
   display: none; }
@@ -1130,7 +1134,7 @@ body {
       margin-bottom: 3rem; }
     .side-panel__controls a,
     .side-panel__controls a:link,
-    .side-panel__controls a:visited {
+    .side-panel__controls a:visited, .side-panel__controls button {
       font-family: Poppins-Medium;
       font-size: 15px;
       line-height: 1.466667;

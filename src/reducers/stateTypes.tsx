@@ -78,3 +78,7 @@ export interface IUser {
   shopingCart: Array<{ productId: string; quantity: number }>;
   transactions: Array<{ id: string; date: string }>;
 }
+
+export interface Ipayment  {
+  status:undefined|"started"|"succeed"|"failed"
+}

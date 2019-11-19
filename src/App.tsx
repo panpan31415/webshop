@@ -29,11 +29,16 @@ import {
   closeSideBar,
   addProduct,
   minusProduct,
-  toggleFav
+  toggleFav,
+  startPayment
 } from "./actions";
 
 class App extends React.Component<any, any> {
+
+
+
   public render() {
+  
     return (
       <Router basename="/webshop/">
         <div className="App">
@@ -47,6 +52,8 @@ class App extends React.Component<any, any> {
             closeSideBar={this.props.closeSideBar}
             products={this.props.products}
             minusProduct={this.props.minusProduct}
+            payment = {this.props.payment}
+            startPayment = {this.props.startPayment}
           />
           <Switch>
             <Route
@@ -122,7 +129,6 @@ class App extends React.Component<any, any> {
               render={() => {
                 return (
                   <section className="pageNotFound">
-                    {" "}
                     <h3>Page not found :( </h3>{" "}
                   </section>
                 );
@@ -187,11 +193,11 @@ function mapDispatchToProps(dispatch: Redux.Dispatch) {
     },
     toggleFav: (productId: string, favorite: boolean) => {
       dispatch(toggleFav(productId, favorite));
+    },
+    startPayment:()=>{
+      dispatch(startPayment())
     }
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

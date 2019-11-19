@@ -1,10 +1,11 @@
 import * as React from "react";
 import ShoppingCartItem from "./ShoppingCartItem";
-import { IUser, IProduct } from "../reducers/stateTypes";
+import {IUser, IProduct } from "../reducers/stateTypes";
 
 interface IShoppingCartItem {
   quantity: number;
   product: IProduct;
+
 }
 
 const ShopingcartSidePanel: React.SFC<{
@@ -13,7 +14,8 @@ const ShopingcartSidePanel: React.SFC<{
   user: IUser;
   products: {};
   minusProduct: (event: React.MouseEvent) => void;
-}> = ({ visible, close, user, products, minusProduct }) => {
+  startPayment:(event: React.MouseEvent)=>void;
+}> = ({ visible, close, user, products, minusProduct,startPayment }) => {
   let shoppingCartItems: Array<IShoppingCartItem>;
 
   shoppingCartItems = user.shopingCart.map(sItem => {
@@ -49,12 +51,12 @@ const ShopingcartSidePanel: React.SFC<{
       </div>
       <div className="side-panel__controls">
         <p className="price_total">Total {totalPrice} kr.</p>
-        <a href="#" className="round-corner-button">
-          view chart
-        </a>
-        <a href="#" className="round-corner-button">
+        <button  className="round-corner-button" onClick={startPayment} >
+          pay now
+        </button>
+        <button className="round-corner-button">
           checkout
-        </a>
+        </button>
       </div>
     </div>
   );
