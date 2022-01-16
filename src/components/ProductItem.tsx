@@ -31,13 +31,12 @@ export const ProductItem: React.SFC<{
   return (
     <div className="productGrid__item">
       <div className="productGrid__item__img-container">
-        <img src={require(`../${img_url}`)} alt="IMG-PRODUCT" />
+        <img src={require(`../images/${img_url}`)} alt="IMG-PRODUCT" />
         <div className="productGrid__item__button-container">
           <button
             className="round-corner-button productGrid__item__button"
             data-product-id={productId}
-            onClick={addProduct}
-          >
+            onClick={addProduct}>
             Add Product
           </button>
         </div>
@@ -46,8 +45,7 @@ export const ProductItem: React.SFC<{
         <p>{name}</p>
         <div
           className="productGrid__item__fav"
-          onClick={e => toggleFav(productId, !favIcon)}
-        >
+          onClick={(e) => toggleFav(productId, !favIcon)}>
           {initFavIcon()}
         </div>
       </div>
