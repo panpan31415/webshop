@@ -4,7 +4,7 @@ CSS - flexbox, grid
 
 React redux, react-router, ES6
 
-live-page: http://panpan.dk/webshop
+live-page: https://webshop-example.panpan.dk/
 
 currenly: img url fixed
 
