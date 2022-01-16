@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -29,13 +29,13 @@ import {
   closeSideBar,
   addProduct,
   minusProduct,
-  toggleFav
+  toggleFav,
 } from "./actions";
 
 class App extends React.Component<any, any> {
   public render() {
     return (
-      <Router basename="/webshop/">
+      <Router basename="/">
         <div className="App">
           <Header
             authentication={this.props.authentication}
@@ -187,11 +187,8 @@ function mapDispatchToProps(dispatch: Redux.Dispatch) {
     },
     toggleFav: (productId: string, favorite: boolean) => {
       dispatch(toggleFav(productId, favorite));
-    }
+    },
   };
 }
 
-export default RA_RE.connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default RA_RE.connect(mapStateToProps, mapDispatchToProps)(App);
