@@ -1,7 +1,7 @@
 {
-  "homepage": "http://panpan.dk/webshop/",
-  "name": "webshop-2",
-  "version": "0.1.0",
+  "homepage": "http://webshop-example.panpan.dk",
+  "name": "webshop-project",
+  "version": "0.1.2",
   "private": true,
   "dependencies": {
     "@types/lodash": "^4.14.117",
